@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+{% load static %}
+
+<style>
+    body{
+        
+        height:100vh;
+
+        {% if predict == 'Negative' %}
+       
+        background-image: url({% static '../static/images/sad.gif' %});
+        {% endif %} 
+        {% if predict == 'Positive' %}
+        
+        background-image: url({% static '../static/images/chill.gif' %});
+
+        {% endif %} 
+        {% if predict == 'Neutral' %}
+    
+        background-image: url({% static '../static/images/newtral.gif' %});
+        {% endif %} 
+
+        background-color:Teal;
+        background-position: center;
+        background-repeat:no-repeat;
+    }
+    #app{
+        display: flex;
+        width: 100vw;
+        justify-content: center;
+        flex-direction: column;
+        align-items: center;
+
+    
+
+    }
+    img{
+        height:33px;
+        margin-left: 1rem;
+    }
+    #predict{display: flex; 
+    align-items: center;
+    margin-top:450px;
+
+    }
+
+    
+</style>
+
+
+<body>
+   <div id="app">
+    <h1>
+        
+        <span style="font-family:cursive">YOUR SENTIMENT </span>
+        
+    
+    </h1>
+
+    
+    <div id="predict">
+        <p> <span style="font-size: 35px" </span> <span style="font-family:Trattatello">{{predict}} </span> </p>
+        {% if predict == 'Negative' %}
+        {% load static %}
+        <img src="{% static '../static/images/sad.svg' %}" alt="SAD FACE">
+        {% endif %} 
+        {% if predict == 'Positive' %}
+        {% load static %}
+        <img src="{% static '../static/images/smile.svg' %}" alt="SMILE FACE">
+        {% endif %} 
+        {% if predict == 'Neutral' %}
+        {% load static %}
+        <img src="{% static '../static/images/neutral.svg' %}" alt="NEUTRALFACE">
+        {% endif %} 
+    </div>
+    
+    
+
+    <a href="/">
+        back
+    
+    </a>
+   </div>
+    
+</body>
+</html>
